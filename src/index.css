@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #388E3C;
+  --secondary-color: #795548;
+  --accent-color: #FBC02D;
+  --success-color: #43A047;
+  --warning-color: #FFA000;
+  --error-color: #F44336;
+  --background-light: #F8F9FA;
+  --background-dark: #1C2833;
+  --text-light: #212529;
+  --text-dark: #F8F9FA;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-display leading-tight mb-4;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.leaf-animation {
+  animation: leaf-sway 3s ease-in-out infinite;
+}
+
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.chat-message {
+  @apply mb-4 p-3 rounded-lg max-w-[80%];
+}
+
+.chat-message.user {
+  @apply bg-primary-100 ml-auto;
+}
+
+.chat-message.bot {
+  @apply bg-white mr-auto;
+}
+
+.input-field {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+}
+
+.btn {
+  @apply px-6 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-primary {
+  @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+}
+
+.btn-secondary {
+  @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500;
+}
+
+.btn-accent {
+  @apply bg-accent-500 text-gray-900 hover:bg-accent-600 focus:ring-accent-400;
+}
+
+.card {
+  @apply bg-white rounded-xl shadow-md overflow-hidden;
+}
+
+.form-group {
+  @apply mb-4;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+.auth-container {
+  @apply min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-primary-100 to-primary-50;
+  background-image: url('https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.auth-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(5px);
+}
+
+.auth-card {
+  @apply bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-md z-10 relative;
+}
+
+/* Typing indicator animation */
+.typing-indicator {
+  @apply flex space-x-1 items-center;
+}
+
+.typing-indicator span {
+  @apply w-2 h-2 rounded-full bg-primary-300;
+  animation: blink 1.4s infinite both;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0% { opacity: 0.1; }
+  20% { opacity: 1; }
+  100% { opacity: 0.1; }
+}
